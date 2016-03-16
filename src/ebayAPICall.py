@@ -9,7 +9,6 @@ class ebayAPICall:
         try:
             response = api.execute('findItemsAdvanced', {'keywords': sys.argv[1]})
 
-            print type(response)
             assert(response.reply.ack == 'Success')
             assert(type(response.reply.timestamp) == datetime.datetime)
             assert(type(response.reply.searchResult.item) == list)
@@ -27,7 +26,7 @@ class ebayAPICall:
     def getCompletedItemsByKeyword(self, keywords):
         try:
             response = api.execute('findCompletedItems', {'keywords': keywords})
-            print type(response)
+
             assert(response.reply.ack == 'Success')
             assert(type(response.reply.timestamp) == datetime.datetime)
             assert(type(response.reply.searchResult.item) == list)
