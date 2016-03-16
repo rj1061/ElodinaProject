@@ -24,7 +24,7 @@ class ebayAPICall:
 
         return response
 
-    def getCompletedItemsByKeyword(keywords):
+    def getCompletedItemsByKeyword(self, keywords):
         try:
             response = api.execute('findCompletedItems', {'keywords': keywords})
             print type(response)
@@ -42,5 +42,6 @@ class ebayAPICall:
 
         return response
 
-    def __init__(self, appid='Elodina-Elodina-PRD-dd2d4c776-3a2daa78', config_file=None):
-        self.api = Connection(appid, config_file)
+    def __init__(self):
+        global api
+        api = Connection(appid='Elodina-Elodina-PRD-dd2d4c776-3a2daa78', config_file=None)
